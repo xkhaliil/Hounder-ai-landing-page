@@ -1,8 +1,12 @@
+import Image from "next/image";
 export function Hero() {
   return (
-    <section className="overflow-hidden bg-background px-6 pb-20 pt-28">
+    <section
+      className="bg-background optimize-content-visibility hero-section overflow-hidden px-6 pb-20 pt-28"
+      style={{ contentVisibility: "auto" }}
+    >
       <div className="mx-auto max-w-5xl text-center">
-        <h1 className="animate-fade-in mb-6 text-5xl font-bold leading-tight text-foreground md:text-7xl">
+        <h1 className="animate-fade-in text-foreground optimize-text-rendering mb-6 text-5xl font-bold leading-tight md:text-7xl">
           <span className="bg-linear-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
             AI-Powered
           </span>{" "}
@@ -10,12 +14,14 @@ export function Hero() {
           <br />
           Search Agent
         </h1>
-        <p className="animate-fade-in animation-delay: 0.1s; mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl">
+        <p className="animate-fade-in text-muted-foreground optimize-text-rendering mx-auto mb-8 max-w-2xl text-lg leading-relaxed delay-100 md:text-xl">
           Hounder scans rental platforms 24/7 and automatically applies for
           viewings so you never miss the perfect apartment.
         </p>
-        <div className="animate-fade-in animation-delay: 0.15s; mb-10 flex items-center justify-center gap-2">
-          <span className="text-sm text-muted-foreground">Hounder is building on</span>
+        <div className="animate-fade-in mb-10 flex items-center justify-center gap-2 delay-150">
+          <span className="text-muted-foreground text-sm">
+            Hounder is building on
+          </span>
           <div className="flex items-center gap-1.5">
             <svg
               className="h-5 w-5"
@@ -31,7 +37,7 @@ export function Hero() {
             <span className="text-sm font-semibold">OpenAI</span>
           </div>
         </div>
-        <div className="animate-fade-in animation-delay: 0.2s; relative mx-auto mb-16 max-w-xl">
+        <div className="animate-fade-in relative mx-auto mb-16 max-w-xl delay-200">
           <div className="flex items-center justify-center gap-4">
             {/* <div className="flex items-center rounded-full border border-gray-200 bg-white p-2 shadow-xl"> */}
             {/* Feature */}
@@ -78,7 +84,7 @@ export function Hero() {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </button> */}
-            <button className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg inline-flex h-11 transform items-center justify-center gap-2 whitespace-nowrap rounded-full bg-primary from-purple-500 to-blue-500 px-6 py-5 text-base font-medium text-primary-foreground transition-all duration-200 hover:scale-[1.02] hover:bg-primary/90 hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0">
+            <button className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-11 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-6 py-5 text-base font-medium transition-all duration-200 hover:scale-[1.02] hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0">
               Get started
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -98,13 +104,21 @@ export function Hero() {
             </button>
           </div>
         </div>
-        <div className="animate-fade-in animation-delay: 0.3s; relative mx-auto max-w-4xl">
+        <div className="animate-fade-in hero-image-container relative mx-auto max-w-4xl delay-300">
           <div className="flex justify-center gap-4">
-            <div className="relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
-              <img
-                src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&amp;h=300&amp;fit=crop"
+            <div className="image-wrapper relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
+              <Image
+                src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
                 alt="Loft in De Kwakel"
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                fetchPriority="high"
+                loading="eager"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                quality={60}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
               <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
                 <p className="text-sm font-medium text-white">
@@ -114,7 +128,10 @@ export function Hero() {
                   € 3 000 <span className="text-sm font-normal">/ month</span>
                 </p>
               </div>
-              <button className="absolute bottom-4 right-4 text-white/80 hover:text-white">
+              <button
+                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
+                aria-label="Save Loft in De Kwakel"
+              >
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -130,11 +147,19 @@ export function Hero() {
                 </svg>
               </button>
             </div>
-            <div className="relative z-10 h-80 w-64 shrink-0 scale-100 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105">
-              <img
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&amp;h=300&amp;fit=crop"
+            <div className="image-wrapper relative z-10 h-80 w-64 shrink-0 scale-100 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105">
+              <Image
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
                 alt="Modern in Amsterdam"
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                fetchPriority="high"
+                loading="eager"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                quality={60}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
               <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
                 <p className="text-sm font-medium text-white">
@@ -144,7 +169,10 @@ export function Hero() {
                   € 2 500 <span className="text-sm font-normal">/ month</span>
                 </p>
               </div>
-              <button className="absolute bottom-4 right-4 text-white/80 hover:text-white">
+              <button
+                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
+                aria-label="Save Modern in Amsterdam"
+              >
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -160,11 +188,19 @@ export function Hero() {
                 </svg>
               </button>
             </div>
-            <div className="relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
-              <img
-                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=400&h=300&fit=crop"
+            <div className="image-wrapper relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
+              <Image
+                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
                 alt="Studio in Rotterdam"
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                priority
+                fetchPriority="high"
+                loading="eager"
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                quality={60}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
 
               <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
@@ -175,7 +211,10 @@ export function Hero() {
                   € 1 800 <span className="text-sm font-normal">/ month</span>
                 </p>
               </div>
-              <button className="absolute bottom-4 right-4 text-white/80 hover:text-white">
+              <button
+                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
+                aria-label="Save Studio in Rotterdam"
+              >
                 <svg
                   className="h-5 w-5"
                   fill="none"

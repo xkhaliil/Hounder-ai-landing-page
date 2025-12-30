@@ -4,26 +4,26 @@ import Image from "next/image";
 import Link from "next/link";
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary px-6 py-12">
+    <footer className="border-border bg-secondary border-t px-6 py-12">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div>
             <Link className="mb-4 flex items-center" href="/">
               <Image src={logo} alt="Hounder" className="h-7 w-7" />
             </Link>
-            <p className="mb-4 text-sm text-muted-foreground">
+            <p className="text-muted-foreground mb-4 text-sm">
               AI-powered platform helping tenants find their perfect rental
               home.
             </p>
           </div>
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-foreground">
+            <h3 className="text-foreground mb-4 text-sm font-semibold">
               Resources
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            </h3>
+            <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
                 <a
-                  className="transition-colors hover:text-foreground"
+                  className="hover:text-foreground transition-colors"
                   href="/guides"
                 >
                   Guides
@@ -31,7 +31,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  className="transition-colors hover:text-foreground"
+                  className="hover:text-foreground transition-colors"
                   href="/blog"
                 >
                   Blog
@@ -39,7 +39,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  className="transition-colors hover:text-foreground"
+                  className="hover:text-foreground transition-colors"
                   href="/compare"
                 >
                   Compare
@@ -47,7 +47,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  className="transition-colors hover:text-foreground"
+                  className="hover:text-foreground transition-colors"
                   href="/faq"
                 >
                   FAQ
@@ -56,14 +56,14 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h4 className="mb-4 text-sm font-semibold text-foreground">
+            <h3 className="text-foreground mb-4 text-sm font-semibold">
               Support
-            </h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            </h3>
+            <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
                 <a
                   href="https://www.iubenda.com/privacy-policy/15144806"
-                  className="iubenda-nostyle iubenda-noiframe iubenda-embed transition-colors hover:text-foreground"
+                  className="iubenda-nostyle iubenda-noiframe iubenda-embed hover:text-foreground transition-colors"
                   title="Privacybeleid"
                 >
                   Privacy Policy
@@ -72,7 +72,7 @@ export function Footer() {
               <li>
                 <a
                   href="https://www.iubenda.com/privacy-policy/15144806/cookie-policy"
-                  className="iubenda-nostyle iubenda-noiframe iubenda-embed transition-colors hover:text-foreground"
+                  className="iubenda-nostyle iubenda-noiframe iubenda-embed hover:text-foreground transition-colors"
                   title="Cookiebeleid"
                 >
                   Cookie Policy
@@ -81,7 +81,7 @@ export function Footer() {
               <li>
                 <a
                   href="https://www.iubenda.com/gebruiksvoorwaarden/15144806"
-                  className="iubenda-nostyle iubenda-noiframe iubenda-embed transition-colors hover:text-foreground"
+                  className="iubenda-nostyle iubenda-noiframe iubenda-embed hover:text-foreground transition-colors"
                   title="Algemene voorwaarden"
                 >
                   Terms of Service
@@ -89,7 +89,7 @@ export function Footer() {
               </li>
             </ul>
           </div>
-          <div className="space-y-1 text-xs text-muted-foreground">
+          <div className="text-muted-foreground space-y-1 text-xs">
             <p>KVK: NL866577518B01</p>
             <p>VAT: 93930240</p>
             <p>Prinsengracht 769, 1017 JZ Amsterdam</p>
@@ -97,7 +97,7 @@ export function Footer() {
               Email:{" "}
               <a
                 href="mailto:info@hounder.ai"
-                className="transition-colors hover:text-foreground"
+                className="hover:text-foreground transition-colors"
               >
                 info@hounder.ai
               </a>
@@ -106,15 +106,15 @@ export function Footer() {
               Phone:{" "}
               <a
                 href="tel:+31611725732"
-                className="transition-colors hover:text-foreground"
+                className="hover:text-foreground transition-colors"
               >
                 +31 611 72 57 32
               </a>
             </p>
           </div>
         </div>
-        <div className="mt-8 border-t border-border pt-8 text-center">
-          <p className="text-sm text-muted-foreground">
+        <div className="border-border mt-8 border-t pt-8 text-center">
+          <p className="text-muted-foreground text-sm">
             © 2025 Hounder. All rights reserved.
           </p>
         </div>

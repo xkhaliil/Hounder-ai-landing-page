@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
+/* Performance optimizations */
+* {
+  box-sizing: border-box;
+  border-color: var(--border);
+}
+
+/* Optimize font loading and rendering */
+html {
+  font-display: swap;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* CSS custom properties for theming */
 :root {
   --background: #ffffff;
   --foreground: #111827;
@@ -41,13 +67,13 @@
   --ring: #6366f1;
 }
 
-* {
-  border-color: var(--border);
-}
-
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .bg-background {
@@ -188,6 +214,18 @@ body {
     0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
+/* Performance optimizations */
+.optimize-content-visibility {
+  content-visibility: auto;
+  contain: layout style paint;
+}
+
+.optimize-text-rendering {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .dark .shadow-modern-lg {
   box-shadow:
     0 10px 15px -3px rgba(0, 0, 0, 0.3),
@@ -204,6 +242,36 @@ body {
 
 .dark .text-gray-900 {
   color: var(--foreground);
+}
+
+/* Critical performance optimizations for LCP */
+.hero-image-container {
+  content-visibility: auto;
+  contain: layout style paint;
+}
+
+/* Optimize critical rendering path */
+.hero-section {
+  contain: layout style paint;
+}
+
+/* Reduce layout shifts */
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optimize font loading */
+.font-optimize {
+  font-display: swap;
+  text-rendering: optimizeLegibility;
+}
+
+/* Critical CSS for above-the-fold content */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none !important;
+  }
 }
 
 .dark .text-gray-600 {
