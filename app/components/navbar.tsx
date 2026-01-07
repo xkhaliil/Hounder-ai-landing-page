@@ -77,9 +77,9 @@ export function Navbar() {
             <div className="hidden items-center gap-3 md:flex">
               {/* Theme Toggle - Suspended for future reactivation */}
               {/* <ThemeToggle /> */}
-              <div className="isolate">
+              <div className="group relative isolate transform-gpu">
                 <a
-                  className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:scale-[1.05] hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                  className="navbar-button-animation ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                   href="/onboarding"
                 >
                   Get Started
@@ -160,9 +160,9 @@ export function Navbar() {
                     </a>
                   </>
                 )}
-                <div className="isolate">
+                <div className="group relative isolate transform-gpu">
                   <a
-                    className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:scale-[1.05] hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                    className="navbar-button-animation ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                     href="/onboarding"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
