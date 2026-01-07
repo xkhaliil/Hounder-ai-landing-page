@@ -1,33 +1,37 @@
-"use server";
-export async function Pricing() {
+"use client";
+import { useState } from "react";
+
+export function Pricing() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <section id="pricing" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-5xl">
         <div className="mb-12 text-center">
-          <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
+          <h2 className="text-foreground mb-4 text-4xl font-bold md:text-5xl">
             No Cure, No Pay
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-lg">
             Only pay when you successfully find your new home. No upfront costs,
             no risk.
           </p>
         </div>
         <div className="mx-auto mb-8 grid max-w-4xl gap-8 md:grid-cols-2">
-          <div className="animate-fade-in rounded-2xl border-2 border-border bg-background p-8 shadow-lg">
+          <div className="animate-fade-in border-border bg-background rounded-2xl border-2 p-8 shadow-lg">
             <div className="mb-6">
-              <h3 className="mb-1 text-2xl font-bold text-foreground">Free</h3>
-              <p className="text-sm text-muted-foreground">
+              <h3 className="text-foreground mb-1 text-2xl font-bold">Free</h3>
+              <p className="text-muted-foreground text-sm">
                 Essential tools to start your search
               </p>
             </div>
             <div className="mb-6">
               <div className="mb-2 flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-foreground">€0</span>
-                <span className="text-sm text-muted-foreground">forever</span>
+                <span className="text-foreground text-4xl font-bold">€0</span>
+                <span className="text-muted-foreground text-sm">forever</span>
               </div>
             </div>
             <ul className="mb-8 space-y-3">
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -44,7 +48,7 @@ export async function Pricing() {
                 </svg>
                 <span>Aggregated listings from entire market</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -61,7 +65,7 @@ export async function Pricing() {
                 </svg>
                 <span>Housing matches delivered via email</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -78,7 +82,7 @@ export async function Pricing() {
                 </svg>
                 <span>Instant alerts for new listings</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -111,19 +115,21 @@ export async function Pricing() {
               <div className="mb-4 inline-block rounded-full bg-green-100 px-4 py-1.5 text-sm font-medium text-green-700">
                 Success Fee Only
               </div>
-              <h3 className="mb-1 text-2xl font-bold text-foreground">
+              <h3 className="text-foreground mb-1 text-2xl font-bold">
                 Hounder Plus
               </h3>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 We do all the work for you
               </p>
             </div>
             <div className="mb-6">
               <div className="mb-1 flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-foreground">€249</span>
-                <span className="text-lg text-muted-foreground/60 line-through">€499</span>
+                <span className="text-foreground text-4xl font-bold">€249</span>
+                <span className="text-muted-foreground/60 text-lg line-through">
+                  €499
+                </span>
               </div>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 one-time fee after you get the keys
               </p>
             </div>
@@ -150,7 +156,7 @@ export async function Pricing() {
               </p>
             </div>
             <ul className="mb-8 space-y-3">
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -167,7 +173,7 @@ export async function Pricing() {
                 </svg>
                 <span>Everything in Free</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -184,7 +190,7 @@ export async function Pricing() {
                 </svg>
                 <span>Automatic viewing applications sent 24/7</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -201,7 +207,7 @@ export async function Pricing() {
                 </svg>
                 <span>Personal tenant profile</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -218,7 +224,7 @@ export async function Pricing() {
                 </svg>
                 <span>Application tracking</span>
               </li>
-              <li className="flex items-center gap-3 text-foreground/90">
+              <li className="text-foreground/90 flex items-center gap-3">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -242,31 +248,32 @@ export async function Pricing() {
             >
               Get Started Free
             </a>
-            <p className="mt-4 text-center text-sm text-muted-foreground">
+            <p className="text-muted-foreground mt-4 text-center text-sm">
               Start with 7 days free trial
             </p>
           </div>
         </div>
         <div className="mx-auto mb-8 max-w-4xl" data-orientation="vertical">
           <div
-            data-state="closed"
+            data-state={isExpanded ? "open" : "closed"}
             data-orientation="vertical"
-            className="rounded-xl border bg-muted px-6"
+            className="rounded-xl border bg-gray-50 px-6"
           >
             <h3
               data-orientation="vertical"
-              data-state="closed"
+              data-state={isExpanded ? "open" : "closed"}
               className="flex"
             >
               <button
                 type="button"
                 aria-controls="radix-:r1:"
-                aria-expanded="false"
-                data-state="closed"
+                aria-expanded={isExpanded}
+                data-state={isExpanded ? "open" : "closed"}
                 data-orientation="vertical"
                 id="radix-:r0:"
-                className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 text-base font-semibold transition-all hover:no-underline"
+                className="flex flex-1 items-center justify-between py-5 text-base font-semibold transition-all hover:no-underline"
                 data-radix-collection-item=""
+                onClick={() => setIsExpanded(!isExpanded)}
               >
                 <div className="flex items-center gap-2">
                   <svg
@@ -279,7 +286,7 @@ export async function Pricing() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-circle-help h-5 w-5 text-muted-foreground"
+                    className="lucide lucide-circle-help h-5 w-5 text-gray-500"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
@@ -297,27 +304,203 @@ export async function Pricing() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+                  className={`lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
                 >
                   <path d="m6 9 6 6 6-6"></path>
                 </svg>
               </button>
             </h3>
             <div
-              data-state="closed"
+              data-state={isExpanded ? "open" : "closed"}
               id="radix-:r1:"
               role="region"
               aria-labelledby="radix-:r0:"
               data-orientation="vertical"
-              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-            ></div>
+              className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm transition-all"
+              style={
+                {
+                  ["--radix-accordion-content-height" as string]:
+                    "var(--radix-collapsible-content-height)",
+                  ["--radix-accordion-content-width" as string]:
+                    "var(--radix-collapsible-content-width)",
+                  ["--radix-collapsible-content-height" as string]: "317px",
+                  ["--radix-collapsible-content-width" as string]: "846px",
+                } as React.CSSProperties
+              }
+              hidden={!isExpanded}
+            >
+              <div className="pb-4 pt-0">
+                <div className="pb-4">
+                  <div className="mt-6 grid grid-cols-3 gap-4 border-t border-gray-200 pt-6 text-sm">
+                    <div className="font-medium text-gray-500">Feature</div>
+                    <div className="text-center font-medium">Free</div>
+                    <div className="text-center font-medium text-purple-600">
+                      Plus
+                    </div>
+                    <div className="text-gray-600">Scan all sources</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">Filter to preferences</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">Email alerts</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">AI applies for you</div>
+                    <div className="text-center text-gray-400">—</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">Track progress</div>
+                    <div className="text-center text-gray-400">—</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                    <div className="text-gray-600">Personal agent</div>
+                    <div className="text-center text-gray-400">—</div>
+                    <div className="text-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="lucide lucide-check mx-auto h-4 w-4 text-green-600"
+                      >
+                        <path d="M20 6 9 17l-5-5"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-          <div className="flex items-center gap-2 rounded-full bg-muted px-4 py-2">
+          <div className="bg-muted flex items-center gap-2 rounded-full px-4 py-2">
             <span className="text-foreground/90">7 day free trial</span>
           </div>
-          <div className="flex items-center gap-2 text-muted-foreground">
+          <div className="text-muted-foreground flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

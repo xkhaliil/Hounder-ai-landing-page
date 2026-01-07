@@ -3,7 +3,7 @@
 export async function Stats() {
   return (
     <div>
-      <section className="border-border bg-background border-t px-6 py-16">
+      <section className="border-border bg-background  px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <h3 className="text-foreground mb-12 text-center text-2xl font-bold md:text-3xl">
             The Results Speak for Themselves

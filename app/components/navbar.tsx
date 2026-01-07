@@ -1,8 +1,11 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./theme-toggle";
+import { useState } from "react";
+// import { ThemeToggle } from "./theme-toggle"; // Suspended for future reactivation
 
 export function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleSmoothScroll = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string,
@@ -15,6 +18,7 @@ export function Navbar() {
         block: "start",
       });
     }
+    setIsMobileMenuOpen(false); // Close mobile menu after clicking
   };
   const pathname = usePathname();
   const isHome = pathname === "/";
@@ -27,6 +31,8 @@ export function Navbar() {
             <a href="/" className="flex items-center">
               <span className="text-foreground text-xl font-bold">hounder</span>
             </a>
+
+            {/* Desktop Navigation */}
             <nav className="hidden items-center gap-8 md:flex">
               {isHome && (
                 <>
@@ -35,13 +41,20 @@ export function Navbar() {
                     onClick={(e) => handleSmoothScroll(e, "#how-it-works")}
                     className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
                   >
-                    Product
+                    How it works
                   </a>
                   <a
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
-                    href="/guides"
+                    href="#testimonials"
+                    onClick={(e) => handleSmoothScroll(e, "#testimonials")}
+                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
                   >
-                    Learn
+                    Reviews
+                  </a>
+                  <a
+                    href="/faq"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
+                    FAQ
                   </a>
                   <a
                     href="#pricing"
@@ -50,11 +63,20 @@ export function Navbar() {
                   >
                     Pricing
                   </a>
+                  <a
+                    href="/blog"
+                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                  >
+                    Blog
+                  </a>
                 </>
               )}
             </nav>
-            <div className="flex items-center gap-3">
-              <ThemeToggle />
+
+            {/* Desktop Buttons */}
+            <div className="hidden items-center gap-3 md:flex">
+              {/* Theme Toggle - Suspended for future reactivation */}
+              {/* <ThemeToggle /> */}
               <a
                 className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 shadow-modern hover:shadow-modern-lg bg-linear-to-r bg-primary text-primary-foreground inline-flex h-9 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-200 hover:scale-[1.02] hover:bg-[#5558e3] hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                 href="/onboarding"
@@ -62,7 +84,90 @@ export function Navbar() {
                 Get Started
               </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex items-center gap-3 md:hidden">
+              {/* Theme Toggle - Suspended for future reactivation */}
+              {/* <ThemeToggle /> */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-muted-foreground hover:text-foreground p-2 transition-colors"
+                aria-label="Toggle menu"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-5 w-5"
+                >
+                  {isMobileMenuOpen ? (
+                    <path d="M18 6 6 18M6 6l12 12" />
+                  ) : (
+                    <path d="M4 12h16M4 6h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
+
+          {/* Mobile Navigation */}
+          {isMobileMenuOpen && (
+            <div className="border-border mt-4 border-t pt-4 md:hidden">
+              <nav className="flex flex-col gap-4">
+                {isHome && (
+                  <>
+                    <a
+                      href="#how-it-works"
+                      onClick={(e) => handleSmoothScroll(e, "#how-it-works")}
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    >
+                      How it works
+                    </a>
+                    <a
+                      href="#testimonials"
+                      onClick={(e) => handleSmoothScroll(e, "#testimonials")}
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    >
+                      Reviews
+                    </a>
+                    <a
+                      href="/faq"
+                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      FAQ
+                    </a>
+                    <a
+                      href="#pricing"
+                      onClick={(e) => handleSmoothScroll(e, "#pricing")}
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    >
+                      Pricing
+                    </a>
+                    <a
+                      href="/blog"
+                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    >
+                      Blog
+                    </a>
+                  </>
+                )}
+                <a
+                  className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 shadow-modern hover:shadow-modern-lg bg-linear-to-r bg-primary text-primary-foreground inline-flex h-9 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-200 hover:scale-[1.02] hover:bg-[#5558e3] hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                  href="/onboarding"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Get Started
+                </a>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
     </div>

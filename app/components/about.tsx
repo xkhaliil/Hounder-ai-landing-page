@@ -43,7 +43,7 @@ export function About() {
                 applications the moment new apartments match your criteria.
               </p>
               <a
-                className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 shadow-modern hover:shadow-modern-lg bg-linear-to-r bg-primary text-primary-foreground inline-flex h-11 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-6 py-5 text-sm font-semibold transition-all duration-200 hover:scale-[1.02] hover:bg-[#5558e3] hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 shadow-modern hover:shadow-modern-lg bg-linear-to-r bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex h-11 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-6 py-5 text-sm font-semibold transition-all duration-300 hover:scale-[1.05] hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                 href="/onboarding"
               >
                 Try now
@@ -57,7 +57,7 @@ export function About() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-arrow-right ml-2 h-4 w-4"
+                  className="lucide lucide-arrow-right ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
                 >
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
@@ -94,8 +94,8 @@ export function About() {
                       Receive Matches
                     </h3>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      Hounder scans 15K+ listings daily and instantly alerts you
-                      to matching apartments.
+                      Hounder scans 250+ housing websites every 5 minutes and
+                      instantly alerts you to matching apartments.
                     </p>
                   </div>
                 </div>
