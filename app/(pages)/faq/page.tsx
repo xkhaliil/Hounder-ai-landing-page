@@ -1,8 +1,80 @@
-
+"use client";
 import { Navbar } from "../../../app/components/navbar";
 import { Footer } from "../../../app/components/footer";
+import { useState } from "react";
 
 export default function FAQPage() {
+  const [expandedItems, setExpandedItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    setExpandedItems((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
+    );
+  };
+
+  const faqs = [
+    {
+      question: "How does Hounder find apartments?",
+      answer:
+        "Hounder uses AI to continuously scan over 450 real estate agencies, major platforms like Funda, Pararius, Facebook Groups, and other rental listings across the Netherlands. We monitor these sources 24/7 to ensure you never miss a new listing that matches your preferences.",
+    },
+    {
+      question: "How much does Hounder cost?",
+      answer:
+        "Hounder operates on a success-based pricing model. You only pay when you successfully sign a rental contract and get your keys. There are no subscriptions, no upfront costs, and no hidden fees. You can browse, search, and receive matches completely free until you find your home.",
+    },
+    {
+      question: "What happens after I sign up?",
+      answer:
+        "After signing up, you'll complete a quick onboarding where you tell us your preferences: budget, location, home style, and move-in date. Our AI immediately starts searching for matching apartments. You'll receive instant alerts whenever a property that fits your criteria becomes available, and we'll help you contact agents and schedule viewings.",
+    },
+    {
+      question: "Do you cover all cities in the Netherlands?",
+      answer:
+        "Currently, we're focused exclusively on Amsterdam where we have 95%+ market coverage. However, we're expanding fast! We're expecting to roll out to other major Dutch cities by the end of the year. Sign up now to be notified when we launch in your city.",
+    },
+    {
+      question: "How quickly can I find an apartment?",
+      answer:
+        "Our users typically move in within 2-3 weeks, which is 3× faster than the average renter in competitive markets like Amsterdam. The exact timeline depends on your preferences, budget, and the current market, but our AI-powered approach significantly accelerates the process by ensuring you're first to respond to new listings.",
+    },
+    {
+      question: "Will Hounder contact agents on my behalf?",
+      answer:
+        "Yes! One of Hounder's key features is automatic agent outreach. We contact real estate agents and housing groups for you, send professionally crafted messages, and handle initial communication. You'll only need to step in when it's time to schedule viewings or provide additional information.",
+    },
+    {
+      question: "Can I still search for apartments myself?",
+      answer:
+        "Absolutely! Hounder is here to assist you, not replace your own efforts. You can continue searching on your own while our AI works in the background. Think of us as your dedicated assistant who never sleeps, ensuring you don't miss opportunities while you handle other parts of your life.",
+    },
+    {
+      question: "What information do I need to provide?",
+      answer:
+        "During onboarding, we'll ask for your budget range, preferred locations (neighborhoods or cities), home preferences (size, type, amenities), and desired move-in date. The more specific you are, the better our AI can match you with the perfect apartment. You can always update these preferences later.",
+    },
+    {
+      question: "Is my data secure?",
+      answer:
+        "Yes, absolutely. We take data security seriously. All your personal information is encrypted and stored securely. We never share your data with third parties without your explicit consent, and we only use it to help you find your perfect rental home.",
+    },
+    {
+      question: "What if I don't find an apartment through Hounder?",
+      answer:
+        "If you don't find an apartment through our service, you don't pay anything. It's that simple. Our success-based model means we're only successful when you are. There's zero financial risk to trying Hounder.",
+    },
+    {
+      question: "Can I pause or cancel my search?",
+      answer:
+        "Yes, you can pause or cancel your search at any time through your account settings. If you pause, you won't receive new alerts until you resume. If you cancel, all automated outreach stops immediately. There are no cancellation fees or penalties.",
+    },
+    {
+      question: "Do you work with landlords directly?",
+      answer:
+        "We work with both landlords and real estate agencies. Our platform connects you with properties from over 450 agencies as well as private landlords posting on platforms like Facebook, Pararius, and Funda. This gives you access to the widest possible range of available rentals.",
+    },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -16,560 +88,71 @@ export default function FAQPage() {
               Everything you need to know about Hounder
             </p>
           </div>
-          <div className="space-y-4" data-orientation="vertical">
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:r1:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:r0:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  How does Hounder find apartments?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
+
+          {/* FAQ Questions */}
+          <div className="mx-auto mb-8 max-w-4xl space-y-4">
+            {faqs.map((faq, index) => {
+              const isExpanded = expandedItems.includes(index);
+
+              return (
+                <div key={index} className="rounded-xl border bg-gray-50 px-6">
+                  <h3 className="flex">
+                    <button
+                      type="button"
+                      className="flex w-full flex-1 items-center justify-between py-5 text-left text-base font-semibold transition-all hover:no-underline"
+                      onClick={() => toggleItem(index)}
+                    >
+                      <span className="flex items-center gap-2">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          className="lucide lucide-circle-help h-5 w-5 text-gray-500"
+                        >
+                          <circle cx="12" cy="12" r="10"></circle>
+                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                          <path d="M12 17h.01"></path>
+                        </svg>
+                        {faq.question}
+                      </span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={`lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
+                      >
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                  </h3>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-out ${
+                      isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    }`}
                   >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:r1:"
-                role="region"
-                aria-labelledby="radix-:r0:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-dow --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); --radix-collapsible-content-height: 88.25px; --radix-collapsible-content-width: 814px; overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:r3:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:r2:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  How much does Hounder cost?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:r3:"
-                role="region"
-                aria-labelledby="radix-:r2:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:r5:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:r4:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  What happens after I sign up?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:r5:"
-                role="region"
-                aria-labelledby="radix-:r4:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:r7:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:r6:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Do you cover all cities in the Netherlands?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:r7:"
-                role="region"
-                aria-labelledby="radix-:r6:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:r9:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:r8:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  How quickly can I find an apartment?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:r9:"
-                role="region"
-                aria-labelledby="radix-:r8:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rb:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:ra:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Will Hounder contact agents on my behalf?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rb:"
-                role="region"
-                aria-labelledby="radix-:ra:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rd:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:rc:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Can I still search for apartments myself?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rd:"
-                role="region"
-                aria-labelledby="radix-:rc:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rf:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:re:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  What information do I need to provide?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rf:"
-                role="region"
-                aria-labelledby="radix-:re:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rh:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:rg:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Is my data secure?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rh:"
-                role="region"
-                aria-labelledby="radix-:rg:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rj:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:ri:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  What if I don't find an apartment through Hounder?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rj:"
-                role="region"
-                aria-labelledby="radix-:ri:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rl:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:rk:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Can I pause or cancel my search?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rl:"
-                role="region"
-                aria-labelledby="radix-:rk:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
-            <div
-              data-state="closed"
-              data-orientation="vertical"
-              className="rounded-xl border border-gray-200 bg-gray-50 px-6 transition-shadow hover:shadow-md"
-            >
-              <h3
-                data-orientation="vertical"
-                data-state="closed"
-                className="flex"
-              >
-                <button
-                  type="button"
-                  aria-controls="radix-:rn:"
-                  aria-expanded="false"
-                  data-state="closed"
-                  data-orientation="vertical"
-                  id="radix-:rm:"
-                  className="[&amp;[data-state=open]&gt;svg]:rotate-180 flex flex-1 items-center justify-between py-5 font-semibold text-gray-900 transition-all hover:no-underline"
-                  data-radix-collection-item=""
-                >
-                  Do you work with landlords directly?
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200"
-                  >
-                    <path d="m6 9 6 6 6-6"></path>
-                  </svg>
-                </button>
-              </h3>
-              <div
-                data-state="closed"
-                id="radix-:rn:"
-                role="region"
-                aria-labelledby="radix-:rm:"
-                data-orientation="vertical"
-                className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down --radix-accordion-content-height: var(--radix-collapsible-content-height); --radix-accordion-content-width: var(--radix-collapsible-content-width); overflow-hidden text-sm transition-all"
-              ></div>
-            </div>
+                    <div className="pb-4">
+                      <p className="leading-relaxed text-gray-600">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
+
           <div className="mt-16 rounded-2xl border border-purple-200 bg-purple-50 p-8 text-center">
             <h2 className="mb-3 text-2xl font-bold text-gray-900">
               Still have questions?

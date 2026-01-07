@@ -2,7 +2,7 @@ import Image from "next/image";
 export function Hero() {
   return (
     <section
-      className="bg-background optimize-content-visibility hero-section overflow-hidden px-6 pb-20 pt-28"
+      className="bg-background optimize-content-visibility hero-section mt-20 overflow-hidden px-6 pb-20 pt-28"
       style={{ contentVisibility: "auto" }}
     >
       <div className="mx-auto max-w-5xl text-center">
@@ -38,7 +38,7 @@ export function Hero() {
           </div>
         </div>
         <div className="animate-fade-in relative mx-auto mb-16 max-w-xl delay-200">
-          <div className="flex items-center justify-center gap-4">
+          <div className="isolate flex items-center justify-center gap-4">
             {/* <div className="flex items-center rounded-full border border-gray-200 bg-white p-2 shadow-xl"> */}
             {/* Feature */}
             {/* enable this button in the future */}
@@ -84,7 +84,7 @@ export function Hero() {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </button> */}
-            <button className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-11 transform items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-6 py-5 text-base font-medium transition-all duration-300 hover:scale-[1.05] hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 group">
+            <button className="ring-offset-background focus-visible:ring-ring [&_svg]:size-4 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex h-11 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-6 py-5 text-base font-medium transition-all duration-300 hover:scale-[1.05] hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0">
               Get started
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,134 +102,6 @@ export function Hero() {
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </button>
-          </div>
-        </div>
-        <div className="animate-fade-in hero-image-container relative mx-auto max-w-4xl delay-300">
-          <div className="flex justify-center gap-4">
-            <div className="image-wrapper relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
-              <Image
-                src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
-                alt="Loft in De Kwakel"
-                fill
-                className="object-cover"
-                priority
-                fetchPriority="high"
-                loading="eager"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                quality={60}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-              />
-              <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
-                <p className="text-sm font-medium text-white">
-                  Loft in De Kwakel
-                </p>
-                <p className="text-lg font-bold text-white">
-                  € 3 000 <span className="text-sm font-normal">/ month</span>
-                </p>
-              </div>
-              <button
-                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
-                aria-label="Save Loft in De Kwakel"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <div className="image-wrapper relative z-10 h-80 w-64 shrink-0 scale-100 overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105">
-              <Image
-                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
-                alt="Modern in Amsterdam"
-                fill
-                className="object-cover"
-                priority
-                fetchPriority="high"
-                loading="eager"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                quality={60}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-              />
-              <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
-                <p className="text-sm font-medium text-white">
-                  Modern in Amsterdam
-                </p>
-                <p className="text-lg font-bold text-white">
-                  € 2 500 <span className="text-sm font-normal">/ month</span>
-                </p>
-              </div>
-              <button
-                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
-                aria-label="Save Modern in Amsterdam"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <div className="image-wrapper relative h-80 w-64 shrink-0 scale-90 overflow-hidden rounded-2xl opacity-80 shadow-lg transition-all duration-300 hover:scale-105">
-              <Image
-                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=300&h=200&fit=crop&q=60&auto=format&fit=crop&auto=webp"
-                alt="Studio in Rotterdam"
-                fill
-                className="object-cover"
-                priority
-                fetchPriority="high"
-                loading="eager"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                quality={60}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-              />
-
-              <div className="bg-linear-to-t absolute bottom-0 left-0 right-0 from-black/70 to-transparent p-4">
-                <p className="text-sm font-medium text-white">
-                  Studio in Rotterdam
-                </p>
-                <p className="text-lg font-bold text-white">
-                  € 1 800 <span className="text-sm font-normal">/ month</span>
-                </p>
-              </div>
-              <button
-                className="absolute bottom-4 right-4 text-white/80 hover:text-white"
-                aria-label="Save Studio in Rotterdam"
-              >
-                <svg
-                  className="h-5 w-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
-              </button>
-            </div>
           </div>
         </div>
       </div>
