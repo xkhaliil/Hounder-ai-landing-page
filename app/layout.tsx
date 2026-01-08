@@ -156,22 +156,7 @@ export default function RootLayout({
           type="image/webp"
           fetchPriority="high"
         />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  var systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  var finalTheme = theme || systemTheme;
-                  if (finalTheme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                  }
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
+        {/* Dark mode script removed - light mode only */}
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background`}

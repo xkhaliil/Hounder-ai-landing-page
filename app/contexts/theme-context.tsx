@@ -15,26 +15,20 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    // Initialize theme on mount
-    const savedTheme = localStorage.getItem("theme") as Theme;
-    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)")
-      .matches
-      ? "dark"
-      : "light";
-    const initialTheme = savedTheme || systemTheme;
-
-    setTheme(initialTheme);
-    document.documentElement.classList.toggle("dark", initialTheme === "dark");
+    // Force light mode only - dark mode suspended
+    setTheme("light");
+    document.documentElement.classList.remove("dark");
   }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark", theme === "dark");
-    localStorage.setItem("theme", theme);
+    // Always use light mode - ignore system preferences
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
   }, [theme]);
 
   const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
+    // Theme toggle disabled - always light mode
+    // setTheme(newTheme);
   };
 
   return (

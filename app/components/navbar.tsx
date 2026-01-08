@@ -79,10 +79,25 @@ export function Navbar() {
               {/* <ThemeToggle /> */}
               <div className="group relative isolate transform-gpu">
                 <a
-                  className="navbar-button-animation ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                  className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex h-8 transform-gpu items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                   href="/onboarding"
                 >
                   Get Started
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -162,11 +177,26 @@ export function Navbar() {
                 )}
                 <div className="group relative isolate transform-gpu">
                   <a
-                    className="navbar-button-animation ring-offset-background focus-visible:ring-ring bg-primary text-primary-foreground hover:bg-primary/90 inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-4 text-xs font-semibold transition-all duration-300 hover:from-purple-600 hover:to-blue-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+                    className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 group inline-flex h-8 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium transition-all duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                     href="/onboarding"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     Get Started
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-arrow-right transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
                   </a>
                 </div>
               </nav>

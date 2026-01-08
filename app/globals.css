@@ -47,25 +47,7 @@ html {
   --radius: 0.5rem;
 }
 
-.dark {
-  --background: #0a0a0a;
-  --foreground: #ffffff;
-  --card: #0a0a0a;
-  --card-foreground: #ffffff;
-  --popover: #0a0a0a;
-  --popover-foreground: #ffffff;
-  --primary: #6366f1;
-  --primary-foreground: #ffffff;
-  --secondary: #1a1a1a;
-  --secondary-foreground: #ffffff;
-  --muted: #1a1a1a;
-  --muted-foreground: #9ca3af;
-  --accent: #1a1a1a;
-  --accent-foreground: #ffffff;
-  --border: #262626;
-  --input: #262626;
-  --ring: #6366f1;
-}
+/* Dark mode CSS removed - light mode only */
 
 body {
   background-color: var(--background);
@@ -92,9 +74,7 @@ body {
   background-color: rgba(147, 51, 234, 0.2);
 }
 
-.dark .bg-purple-theme {
-  background-color: rgba(147, 51, 234, 0.3);
-}
+/* Dark mode .bg-purple-theme removed - light mode only */
 
 .bg-accent {
   background-color: var(--accent);
@@ -246,6 +226,24 @@ body {
   -webkit-transform-style: preserve-3d;
 }
 
+/* Navbar button stability - prevent any layout shifts */
+nav .group.isolate.relative.transform-gpu {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+nav .group.isolate.relative.transform-gpu a {
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  will-change: auto !important;
+}
+
+/* Ensure only arrow moves, not the button */
+nav .group.isolate.relative.transform-gpu a:hover {
+  transform: translateZ(0) scale3d(1, 1, 1) !important;
+}
+
 /* Accordion animations */
 @keyframes accordion-down {
   from {
@@ -308,12 +306,7 @@ body {
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Dark mode adjustments */
-.dark .shadow-modern {
-  box-shadow:
-    0 4px 6px -1px rgba(0, 0, 0, 0.3),
-    0 2px 4px -1px rgba(0, 0, 0, 0.2);
-}
+/* Dark mode CSS removed - light mode only */
 
 /* Performance optimizations */
 .optimize-content-visibility {
@@ -327,23 +320,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.dark .shadow-modern-lg {
-  box-shadow:
-    0 10px 15px -3px rgba(0, 0, 0, 0.3),
-    0 4px 6px -2px rgba(0, 0, 0, 0.15);
-}
-
-.dark .bg-white\/80 {
-  background-color: rgba(10, 10, 10, 0.8);
-}
-
-.dark .border-gray-100 {
-  border-color: var(--border);
-}
-
-.dark .text-gray-900 {
-  color: var(--foreground);
-}
+/* Dark mode CSS rules removed - light mode only */
 
 /* Critical performance optimizations for LCP */
 .hero-image-container {
@@ -375,18 +352,4 @@ body {
   }
 }
 
-.dark .text-gray-600 {
-  color: var(--muted-foreground);
-}
-
-.dark .text-gray-500 {
-  color: var(--muted-foreground);
-}
-
-.dark .bg-white {
-  background-color: var(--background);
-}
-
-.dark .border-gray-200 {
-  border-color: var(--border);
-}
+/* Dark mode CSS rules removed - light mode only */
