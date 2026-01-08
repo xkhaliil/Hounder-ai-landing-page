@@ -3,6 +3,12 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./contexts/theme-context";
 import { registerServiceWorker } from "./utils/service-worker";
+import {
+  SchemaMarkup,
+  defaultWebsiteSchema,
+  defaultOrganizationSchema,
+  defaultProductSchema,
+} from "./components/schema-markup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,22 +25,79 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hounder - AI-Powered Home Search Agent",
+  title: {
+    default: "Hounder - AI-Powered Home Search Agent | Never Miss an Apartment",
+    template: "%s | Hounder",
+  },
   description:
-    "Hounder scans rental platforms 24/7 and automatically applies for viewings so you never miss the perfect apartment.",
-  keywords: ["home search", "rental", "AI", "apartment finder", "real estate"],
-  authors: [{ name: "Hounder" }],
+    "Hounder scans rental platforms 24/7 and automatically applies for viewings so you never miss the perfect apartment. AI-powered home search in the Netherlands.",
+  keywords: [
+    "home search",
+    "rental",
+    "AI",
+    "apartment finder",
+    "real estate",
+    "Netherlands",
+    "rental platforms",
+    "viewing applications",
+    "property search",
+    "automated rental",
+  ],
+  authors: [{ name: "Hounder", url: "https://hounder.ai" }],
+  creator: "Hounder",
+  publisher: "Hounder",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: {
+    canonical: "https://hounder.ai",
+  },
+  manifest: "/site.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Hounder",
+    statusBarStyle: "default",
+  },
+  formatDetection: {
+    telephone: false,
+  },
   openGraph: {
     title: "Hounder - AI-Powered Home Search Agent",
     description:
-      "Never miss the perfect apartment again. AI-powered home search that works 24/7.",
+      "Never miss the perfect apartment again. AI-powered home search that works 24/7 across all Dutch rental platforms.",
     type: "website",
+    locale: "en_NL",
+    siteName: "Hounder",
+    url: "https://hounder.ai",
+    images: [
+      {
+        url: "https://hounder.ai/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Hounder AI Home Search Platform",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Hounder - AI-Powered Home Search Agent",
     description:
       "Never miss the perfect apartment again. AI-powered home search that works 24/7.",
+    site: "@hounderai",
+    creator: "@hounderai",
+    images: ["https://hounder.ai/twitter-image.jpg"],
+  },
+  verification: {
+    google: "your-google-verification-code",
+    yandex: "your-yandex-verification-code",
   },
 };
 
@@ -157,6 +220,11 @@ export default function RootLayout({
           fetchPriority="high"
         />
         {/* Dark mode script removed - light mode only */}
+
+        {/* JSON-LD Schema Markup */}
+        <SchemaMarkup type="website" data={defaultWebsiteSchema} />
+        <SchemaMarkup type="organization" data={defaultOrganizationSchema} />
+        <SchemaMarkup type="product" data={defaultProductSchema} />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-background`}

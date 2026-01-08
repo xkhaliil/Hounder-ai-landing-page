@@ -1,0 +1,53 @@
+{
+  "name": "Hounder - AI Home Search",
+  "short_name": "Hounder",
+  "description": "AI-powered home search that monitors rental platforms 24/7 and automatically applies for viewings",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search Apartments",
+      "url": "/",
+      "description": "Start searching for your perfect apartment"
+    },
+    {
+      "name": "FAQ",
+      "url": "/faq",
+      "description": "Get help and find answers to common questions"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

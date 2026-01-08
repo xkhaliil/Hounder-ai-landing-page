@@ -1,17 +1,37 @@
-"use client";
 import { Navbar } from "../../../app/components/navbar";
 import { Footer } from "../../../app/components/footer";
-import { useState } from "react";
+import { SchemaMarkup } from "../../../app/components/schema-markup";
+import { FAQClient } from "../../../app/components/faq-client";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ - Frequently Asked Questions | Hounder",
+  description:
+    "Find answers to common questions about Hounder's AI-powered home search service, pricing, coverage, and how it works.",
+  keywords: [
+    "FAQ",
+    "frequently asked questions",
+    "Hounder help",
+    "rental platform",
+    "AI home search",
+    "apartment finder",
+    "Netherlands rental",
+  ],
+  openGraph: {
+    title: "FAQ - Hounder AI Home Search",
+    description:
+      "Everything you need to know about Hounder's AI-powered rental search service",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "FAQ - Hounder AI Home Search",
+    description:
+      "Everything you need to know about Hounder's AI-powered rental search service",
+  },
+};
 
 export default function FAQPage() {
-  const [expandedItems, setExpandedItems] = useState<number[]>([]);
-
-  const toggleItem = (index: number) => {
-    setExpandedItems((prev) =>
-      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index],
-    );
-  };
-
   const faqs = [
     {
       question: "How does Hounder find apartments?",
@@ -76,101 +96,51 @@ export default function FAQPage() {
   ];
 
   return (
-    <div>
-      <Navbar />
-      <main className="relative z-10 grow">
-        <div className="container relative mx-auto max-w-4xl overflow-hidden px-4 pb-24 pt-16 md:pb-32 md:pt-24">
-          <div className="opacity: 1; transform: none; mx-auto mb-16 max-w-4xl text-center">
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
-              Frequently asked questions
-            </h1>
-            <p className="mx-auto mb-8 max-w-2xl text-lg text-neutral-700 md:text-xl">
-              Everything you need to know about Hounder
-            </p>
-          </div>
+    <>
+      <SchemaMarkup
+        type="faq"
+        data={{
+          questions: faqs.map((faq) => ({
+            question: faq.question,
+            answer: faq.answer,
+          })),
+        }}
+      />
+      <div>
+        <Navbar />
+        <main className="relative z-10 grow">
+          <div className="container relative mx-auto max-w-4xl overflow-hidden px-4 pb-24 pt-16 md:pb-32 md:pt-24">
+            <div className="opacity: 1; transform: none; mx-auto mb-16 max-w-4xl text-center">
+              <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+                Frequently asked questions
+              </h1>
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-neutral-700 md:text-xl">
+                Everything you need to know about Hounder
+              </p>
+            </div>
 
-          {/* FAQ Questions */}
-          <div className="mx-auto mb-8 max-w-4xl space-y-4">
-            {faqs.map((faq, index) => {
-              const isExpanded = expandedItems.includes(index);
+            {/* FAQ Questions */}
+            <FAQClient faqs={faqs} />
 
-              return (
-                <div key={index} className="rounded-xl border bg-gray-50 px-6">
-                  <h3 className="flex">
-                    <button
-                      type="button"
-                      className="flex w-full flex-1 items-center justify-between py-5 text-left text-base font-semibold transition-all hover:no-underline"
-                      onClick={() => toggleItem(index)}
-                    >
-                      <span className="flex items-center gap-2">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          className="lucide lucide-circle-help h-5 w-5 text-gray-500"
-                        >
-                          <circle cx="12" cy="12" r="10"></circle>
-                          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
-                          <path d="M12 17h.01"></path>
-                        </svg>
-                        {faq.question}
-                      </span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={`lucide lucide-chevron-down h-4 w-4 shrink-0 transition-transform duration-200 ${isExpanded ? "rotate-180" : ""}`}
-                      >
-                        <path d="m6 9 6 6 6-6"></path>
-                      </svg>
-                    </button>
-                  </h3>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ease-out ${
-                      isExpanded ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <div className="pb-4">
-                      <p className="leading-relaxed text-gray-600">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            <div className="mt-16 rounded-2xl border border-purple-200 bg-purple-50 p-8 text-center">
+              <h2 className="mb-3 text-2xl font-bold text-gray-900">
+                Still have questions?
+              </h2>
+              <p className="mb-6 text-gray-600">
+                We're here to help! Contact our support team for personalized
+                assistance.
+              </p>
+              <a
+                className="bg-linear-to-r inline-block rounded-lg from-purple-600 to-blue-600 px-6 py-3 font-medium text-white shadow-md transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg"
+                href="mailto:support@hounder.com"
+              >
+                Contact Support
+              </a>
+            </div>
           </div>
-
-          <div className="mt-16 rounded-2xl border border-purple-200 bg-purple-50 p-8 text-center">
-            <h2 className="mb-3 text-2xl font-bold text-gray-900">
-              Still have questions?
-            </h2>
-            <p className="mb-6 text-gray-600">
-              We're here to help! Contact our support team for personalized
-              assistance.
-            </p>
-            <a
-              className="bg-linear-to-r inline-block rounded-lg from-purple-600 to-blue-600 px-6 py-3 font-medium text-white shadow-md transition-all hover:from-purple-700 hover:to-blue-700 hover:shadow-lg"
-              href="mailto:support@hounder.com"
-            >
-              Contact Support
-            </a>
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }
