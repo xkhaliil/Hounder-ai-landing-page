@@ -239,6 +239,52 @@ nav .get-started-button:hover {
   transform: translateZ(0) scale3d(1, 1, 1) !important;
 }
 
+/* Prevent any hover effects on navbar navigation items */
+nav a {
+  transform: none !important;
+  transition: color 0.2s ease-in-out !important;
+}
+
+nav a:hover {
+  transform: none !important;
+  scale: none !important;
+}
+
+/* Ensure navbar container doesn't shift */
+nav {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+/* Prevent any transform effects on navbar containers */
+nav > div {
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+/* Ultra-specific rule to prevent any size changes */
+nav *,
+nav *::before,
+nav *::after {
+  transform: none !important;
+  scale: none !important;
+  transition:
+    color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out !important;
+}
+
+/* Exception only for the Get Started button arrow */
+nav .get-started-button svg {
+  transform: none !important;
+  transition: transform 0.3s ease-in-out !important;
+}
+
+nav .get-started-button:hover svg {
+  transform: translateX(4px) !important;
+}
+
 /* Accordion animations */
 @keyframes accordion-down {
   from {
