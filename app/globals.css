@@ -184,7 +184,9 @@ body {
 .navbar-button-animation {
   position: relative;
   animation: trace-border 4s ease-in-out infinite;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: transform, box-shadow;
   transform: translateZ(0);
   backface-visibility: hidden;
@@ -227,20 +229,13 @@ body {
 }
 
 /* Navbar button stability - prevent any layout shifts */
-nav .group.isolate.relative.transform-gpu {
+nav .get-started-button {
   transform: translateZ(0);
   backface-visibility: hidden;
   will-change: transform;
 }
 
-nav .group.isolate.relative.transform-gpu a {
-  transform: translateZ(0) !important;
-  backface-visibility: hidden !important;
-  will-change: auto !important;
-}
-
-/* Ensure only arrow moves, not the button */
-nav .group.isolate.relative.transform-gpu a:hover {
+nav .get-started-button:hover {
   transform: translateZ(0) scale3d(1, 1, 1) !important;
 }
 
