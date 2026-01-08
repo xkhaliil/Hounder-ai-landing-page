@@ -39,33 +39,33 @@ export function Navbar() {
                   <a
                     href="#how-it-works"
                     onClick={(e) => handleSmoothScroll(e, "#how-it-works")}
-                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                   >
                     How it works
                   </a>
                   <a
                     href="#testimonials"
                     onClick={(e) => handleSmoothScroll(e, "#testimonials")}
-                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                   >
                     Reviews
                   </a>
                   <a
                     href="/faq"
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    className="text-muted-foreground hover:text-foreground text-sm"
                   >
                     FAQ
                   </a>
                   <a
                     href="#pricing"
                     onClick={(e) => handleSmoothScroll(e, "#pricing")}
-                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                    className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                   >
                     Pricing
                   </a>
                   <a
                     href="/blog"
-                    className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                    className="text-muted-foreground hover:text-foreground text-sm"
                   >
                     Blog
                   </a>
@@ -78,7 +78,7 @@ export function Navbar() {
               {/* Theme Toggle - Suspended for future reactivation */}
               {/* <ThemeToggle /> */}
               <a
-                className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 get-started-button inline-flex h-8 transform-gpu items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium transition-colors duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern bg-primary text-primary-foreground hover:bg-primary/90 get-started-button inline-flex h-8 transform-gpu items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                 href="/onboarding"
               >
                 Get Started
@@ -92,7 +92,7 @@ export function Navbar() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="lucide lucide-arrow-right transition-transform duration-300 hover:translate-x-1"
+                  className="lucide lucide-arrow-right"
                 >
                   <path d="M5 12h14"></path>
                   <path d="m12 5 7 7-7 7"></path>
@@ -106,7 +106,7 @@ export function Navbar() {
               {/* <ThemeToggle /> */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="text-muted-foreground hover:text-foreground p-2 transition-colors"
+                className="text-muted-foreground hover:text-foreground p-2"
                 aria-label="Toggle menu"
               >
                 <svg
@@ -140,20 +140,20 @@ export function Navbar() {
                     <a
                       href="#how-it-works"
                       onClick={(e) => handleSmoothScroll(e, "#how-it-works")}
-                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                     >
                       How it works
                     </a>
                     <a
                       href="#testimonials"
                       onClick={(e) => handleSmoothScroll(e, "#testimonials")}
-                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                     >
                       Reviews
                     </a>
                     <a
                       href="/faq"
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                      className="text-muted-foreground hover:text-foreground text-sm"
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       FAQ
@@ -161,20 +161,20 @@ export function Navbar() {
                     <a
                       href="#pricing"
                       onClick={(e) => handleSmoothScroll(e, "#pricing")}
-                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm transition-colors"
+                      className="text-muted-foreground hover:text-foreground cursor-pointer text-sm"
                     >
                       Pricing
                     </a>
                     <a
                       href="/blog"
-                      className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+                      className="text-muted-foreground hover:text-foreground text-sm"
                     >
                       Blog
                     </a>
                   </>
                 )}
                 <a
-                  className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern hover:shadow-modern-lg bg-primary text-primary-foreground hover:bg-primary/90 get-started-button inline-flex h-8 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium transition-colors duration-300 hover:from-purple-600 hover:to-blue-600 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
+                  className="ring-offset-background focus-visible:ring-ring [&_svg]:size-3 bg-linear-to-r shadow-modern bg-primary text-primary-foreground hover:bg-primary/90 get-started-button inline-flex h-8 items-center justify-center gap-2 whitespace-nowrap rounded-full from-purple-500 to-blue-500 px-3 py-2 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0"
                   href="/onboarding"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -189,7 +189,7 @@ export function Navbar() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    className="lucide lucide-arrow-right transition-transform duration-300 hover:translate-x-1"
+                    className="lucide lucide-arrow-right"
                   >
                     <path d="M5 12h14"></path>
                     <path d="m12 5 7 7-7 7"></path>
